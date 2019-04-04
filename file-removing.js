@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-//fs.rmdirSync("./newDir");
+fs.rmdirSync("./newDir");
 try {
   //remove a file
   fs.unlinkSync("./newDir/newFile.js");
