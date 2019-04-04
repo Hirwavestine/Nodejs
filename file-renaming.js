@@ -1,3 +1,5 @@
 const fs = require("fs");
-//fs.renameSync("./newfile2.js", "newDir/newfile.js");
+//rename a file
+fs.renameSync("./newfile2.js", "newDir/newfile.js");
+//rename or move directory
 fs.renameSync("./newDir/childDir", "./parentDir");
