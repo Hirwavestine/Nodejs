@@ -1,10 +1,10 @@
 const axios = require("axios");
 
-let username = "Hirwavestine";
+let username = "Edwin";
 axios
   .get("https://api.github.com/users/" + username)
   .then(res => {
-    console.log(res.data.updated_at);
+    console.log(res.data.followers);
   })
   .catch(err => {
     console.log(err);
