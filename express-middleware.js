@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+const express = require("express");
+
+let app = express();
+
+app.use("/css", express.static(__dirname + "/public"));
+
+app.use((req, res, next) => {
+  console.log("MIDDLEWARE");
+  next();
+});
+
+app.get("/", (req, res) => {
+  res.send(`
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,3 +30,11 @@
     </p>
   </body>
 </html>
+
+  
+  `);
+});
+
+app.listen(9999);
+
+console.log(`It's working`);
