@@ -7,7 +7,8 @@ app.get("/", (req, res) => {
 });
 //create an other route api
 app.get("/api", (req, res) => {
-  res.send("<h1>API PAGE</h1>");
+  //res.send("<h1>API PAGE</h1>");
+  res.json({ name: "Hirwa" });
 });
 
 app.listen(port);
