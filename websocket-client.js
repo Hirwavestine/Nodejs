@@ -1,22 +1,33 @@
 const WS = new WebSocket("ws://localhost:3232");
-//payload is everything tht you can think on when transmitting information online
-//listening for anything coming from the server
+
 WS.onmessage = payload => {
-  console.log(payload.data);
+  displayMessages(payload.data);
 };
+
 WS.onopen = () => {
   displayTitle("CONNECTED TO SERVER");
 };
+
 WS.onclose = () => {
-  console.log("CONNECTION IS CLOSE");
+  displayTitle("DISCONNECTED TO SERVER");
 };
+
 function displayTitle(title) {
   document.querySelector("h1").innerHTML = title;
 }
-//getting data from the form
+
+function displayMessages(message) {
+  let h1 = document.createElement("h1");
+
+  h1.innerText = message;
+
+  document.querySelector("div.messages").appendChild(h1);
+}
+
 document.forms[0].onsubmit = () => {
   let input = document.getElementById("message");
-  console.log(input.value);
-  //send data to our webserver using an instance WS
+
+  // console.log(input.value);
+
   WS.send(input.value);
 };
